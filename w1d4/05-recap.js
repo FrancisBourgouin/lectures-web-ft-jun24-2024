@@ -28,5 +28,5 @@ const someHOFunction = (callback) => {
 
 const someCallbackGood = (num1, num2) => num1 + num2 // Good
 
-const someCallbackBad = (num1, num2, num3, num4) => num1 + num2 ... // Bad
+const someCallbackBad = (num1, num2, num3, num4) => num1 + num2 + num3 + num4 // Bad
 

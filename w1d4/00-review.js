@@ -24,6 +24,6 @@ for(const keyOrIndex in list){
 
 // .forEach()
 
-list.forEach(...)
+list.forEach()
 
 // .map / .filter 
