@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>User</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <header>
+    <h1>Super website of destiny!</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Rules for EJS tags!</h2>
+
+      <ul>
+        <li>&lt;%= : output the content</li>
+        <li>&lt;% : run with no output the content</li>
+      </ul>
+    </section>
+    <h2>Information for all users:</h2>
+    
+
+    <% for(const user of users){ %>
+      <ul>
+        <li>Name: <%= user.name %></li>
+        <li>Email: <%= user.email %></li>
+        <% if(user.isAdmin){ %>
+          <li>They're an admin</li>        
+        <% } else { %>
+          <li>They're not an admin</li>
+        <% } %>
+        <li><a href="/users/<%= user.id %>">Link to user!</a></li>
+      </ul>
+    <% } %>
+  </main>
+</body>
+</html>

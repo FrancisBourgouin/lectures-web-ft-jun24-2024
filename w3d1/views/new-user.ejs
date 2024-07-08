@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <header>
+      <h1>Super website of destiny!</h1>
+    </header>
+    <main>
+      <h2>Information for current user:</h2>
+      <form action="/users" method="POST">
+        <div>
+          <label for="name">Enter the name:</label>
+          <input type="text" id="name" name="name" placeholder="Enter the name" />
+        </div>
+        <div>
+          <label for="email">Enter the email:</label>
+          <input type="text" id="email" name="email" placeholder="Enter the email" />
+        </div>
+        <div>
+          <label for="isAdmin">Are they an admin?<label>
+          <input type="checkbox" id="isAdmin" name="isAdmin" placeholder="Enter the admin status" />
+        </div>
+        <button>Add user!</button>
+      </form>
+      <a href="/users">Return to users</a>
+    </main>
+  </body>
+</html>
