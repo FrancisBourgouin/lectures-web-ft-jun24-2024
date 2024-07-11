@@ -1,3 +1,5 @@
+const bcrypt = require("bcryptjs")
+
 const authenticateUser = (email, password, users) => {
   // Either an error message or the user
   // I should return both!
@@ -9,7 +11,9 @@ const authenticateUser = (email, password, users) => {
     output.error = "User doesn't exist"
   }
 
-  if(users[email].password !== password){
+  // if(users[email].password !== password){
+  const isSamePassword = bcrypt.compareSync(password, users[email].password)
+  if(!isSamePassword){
     output.error = "User password doesn't match"
   }
 
@@ -20,5 +24,18 @@ const authenticateUser = (email, password, users) => {
   return output
 };
 
+const createUser = (email, password, secret, salt, users) => {
+  const newUser = {
+    email,
+    password:bcrypt.hashSync(password, salt),
+    secret,
+    id:Object.keys(users).length + 1
+  }
 
-module.exports = {authenticateUser}
+  users[email] = newUser
+
+  return {error:null, user:newUser}
+}
+
+
+module.exports = {authenticateUser, createUser}
