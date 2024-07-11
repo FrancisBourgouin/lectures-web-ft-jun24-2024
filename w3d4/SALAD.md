@@ -26,3 +26,20 @@ Amount of values ^ length
 26^29
 
 Red, the barn is
+
+
+
+
+HASHING vs ENCRYPTING
+
+
+RECOVER PASSWORD => email => password
+
+
+RESET PASSWORD => email => ...
+
+
+HASHING => ONE WAY ENCRYPTION
+
+
+potato + hash => d29- du12  90ednj2i0dn2ei0jeuj0 je2j0/

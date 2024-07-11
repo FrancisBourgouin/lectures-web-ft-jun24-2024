@@ -1,11 +1,11 @@
 // Require external resources
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const cookieSession = require("cookie-session")
+const cookieSession = require("cookie-session");
 const dotenv = require("dotenv");
 const users = require("./data/users");
 const { authenticateUser, createUser } = require("./helpers/userHelpers");
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
 
 // Initialize my server
 
@@ -13,11 +13,10 @@ dotenv.config(); // Read the .env file and store the info inside process.env
 const app = express();
 const port = process.env.PORT || 8080;
 app.set("view engine", "ejs");
-const salt = bcrypt.genSaltSync(10)
 
-
-users["periodic@table.com"].password = bcrypt.hashSync(process.env.USER1_PASSWORD, salt)
-users["pontiac@bandit.com"].password = bcrypt.hashSync(process.env.USER2_PASSWORD, salt)
+const salt = bcrypt.genSaltSync(10);
+users["periodic@table.com"].password = bcrypt.hashSync(process.env.USER1_PASSWORD, salt);
+users["pontiac@bandit.com"].password = bcrypt.hashSync(process.env.USER2_PASSWORD, salt);
 
 // Set up the middlewares
 
@@ -26,10 +25,12 @@ app.use(express.static("public"));
 // Parse the content of cookie string to a cookie object (Parsing/Rendering/Interpreting)
 app.use(cookieParser());
 // Encrypt Decrypt a session cookie
-app.use(cookieSession({
-  name:"session",
-  keys:[process.env.SESSION_KEY1, process.env.SESSION_KEY2]
-}))
+app.use(
+  cookieSession({
+    name: "session",
+    keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2],
+  })
+);
 // Parse the content of the form body to a body object
 app.use(express.urlencoded({ extended: false }));
 // Enforce a whitelist on our routes
@@ -67,8 +68,8 @@ app.get("/secret/:userId", (req, res) => {
 });
 
 app.get("/api/users", (req, res) => {
-  return res.json(users)
-})
+  return res.json(users);
+});
 
 // Routes where we do an action (POST)
 
@@ -85,24 +86,24 @@ app.post("/login", (req, res) => {
   }
 
   // res.cookie("email", user.email);
-  req.session.email = user.email
+  req.session.email = user.email;
   return res.redirect("/secret");
 });
 
 // Create a user
 app.post("/register", (req, res) => {
   // Something here
-  const {email, password, secret} = req.body
+  const { email, password, secret } = req.body;
 
-  const {error, user} = createUser(email, password, secret, salt, users)
+  const { error, user } = createUser(email, password, secret, salt, users);
 
-  if(error){
-    console.log(error)
-    return res.redirect("/register")
+  if (error) {
+    console.log(error);
+    return res.redirect("/register");
   }
 
-  req.session.email = user.email
-  return res.redirect("/secret")
+  req.session.email = user.email;
+  return res.redirect("/secret");
 });
 
 // Logout a user
