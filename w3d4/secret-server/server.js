@@ -22,7 +22,7 @@ app.use(cookieParser());
 // Encrypt Decrypt a session cookie
 app.use(cookieSession({
   name:"session",
-  keys:["!53mxzKsaA", "The little chicken in the prairie"]
+  keys:[process.env.SESSION_KEY1, process.env.SESSION_KEY2]
 }))
 // Parse the content of the form body to a body object
 app.use(express.urlencoded({ extended: false }));
