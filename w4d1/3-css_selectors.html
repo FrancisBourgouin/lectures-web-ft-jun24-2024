@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>CSS Selectors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style type="text/css">
+
+    
+    /* CASCADING STYLE SHEETS! */
+    /* LAST ONE WINS (AT THE CONDITION OF BEING OF EQUAL SPECIFICITY) */
+
+    /* Tag name (article, header, p, div) */
+    /* Class name  starts with . */
+    /* Id name starts with # */
+    /* inline style */
+    /* EVIL PLEASE NOT USE EVERRRR: Override with !important */
+
+    body{
+      background-color: #bada55;
+      background-color: #b4d;
+      background-color: #bad;
+    }
+
+    article.sponsored{
+      background-color: yellow;
+    }
+
+    article#top-story{
+      background-color: orangered;
+    }
+
+    article{
+      background-color: #b4d;
+    }
+
+    section{
+      background-color: #c0ffee;
+    }
+
+    /* h1 inside anything that has the sponsored class */
+    .sponsored h1{
+      text-decoration: underline;
+    }
+
+    /* h1 that is the direct child of the top-news class */
+    .top-news > h1{
+      font-size:50px;
+      font-weight: 900;
+    }
+
+    /* Give a border to every odd counting article */
+    .top-news article:nth-of-type(2n + 1){
+      border:5px solid brown;
+    }
+
+    /* Change the border color of the last article */
+    .top-news article:last-of-type{
+      border-color:#bada55;
+    }
+
+  </style>
+  <body>
+    <header>
+      <h1>Super website of destiny!</h1>
+    </header>
+    <main>
+      <section class="top-news">
+        <h1>Top news!</h1>
+        <article class="sponsored">
+          <h1>Article 1</h1>
+          <h2>Some subtitle</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ratione debitis
+            velit aut enim id minima, quis placeat explicabo minus eaque, magnam quos quas
+            numquam aperiam voluptatum, assumenda ut dolor.
+          </p>
+        </article>
+        <article class="sponsored" id="top-story" style="background-color: bisque;">
+          <h1>Article 2</h1>
+          <h2>Some subtitle</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ratione debitis
+            velit aut enim id minima, quis placeat explicabo minus eaque, magnam quos quas
+            numquam aperiam voluptatum, assumenda ut dolor.
+          </p>
+        </article>
+        <article>
+          <h1>Article 3</h1>
+          <h2>Some subtitle</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ratione debitis
+            velit aut enim id minima, quis placeat explicabo minus eaque, magnam quos quas
+            numquam aperiam voluptatum, assumenda ut dolor.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

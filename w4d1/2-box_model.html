@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Box Model</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <style>
+    /* Indesign / Quark Express / Publisher */
+    body{
+      font-size:50px;
+    }
+
+    /* Margin, Padding, Gutters, Font size, Font Weight, Kerning, Serif vs Sans Serif */
+
+    /* Serif vs Sans Serif */
+    .serif{
+      font-family: 'Courier New', Courier, monospace;
+      font-family: serif;
+    }
+    .sans-serif{
+      font-family: "Comic Sans MS";
+      font-family: sans-serif;
+    }
+
+    i{
+      font-style: normal;
+      display: inline-block;
+
+      border:2px solid brown;
+
+      background-color: orange;
+    }
+    
+    /* Margin */
+    /* We want to use margin when we want to space out elements between each other */
+    .margin{
+      background-color: #bad;
+      margin-bottom: 50px;;
+    }
+    .margin i{
+      margin:50px;
+    }
+
+    /* Padding */
+    /* We want to use padding when we want to sorrounding area inside the box to be more spaced out */
+    .padding{
+      background-color: #bad;
+      padding:50px;
+    }
+    .padding i{
+      padding:50px;
+    }
+
+    .border-box i,
+    .content-box i{
+      width:150px;
+      height:150px;
+      padding:50px;
+    }
+
+    .border-box i{
+      box-sizing: border-box;
+    }
+    .content-box i{
+      box-sizing: content-box;
+    }
+
+    /* Colors! */
+    /* 8bits => 0-255, 0-255, 0-255  (Red, Green, Blue) (RGB) */
+
+    
+    /* Base 10 => Base 16 */
+    /* Hexadecimal colors */
+
+    /* #fff , #bababa, #000, ... */
+  </style>
+  <body>
+    <header>
+      <h1>Some CSS basics!</h1>
+    </header>
+    <main>
+      <ul>
+        <li class="serif">I am a serif font</li>
+        <li class="sans-serif">I am a font without serif (or sans-serif)</li>
+      </ul>
+      <section class="margin">
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+      </section>
+      <section class="padding">
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+      </section>
+      <section class="content-box">
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+      </section>
+      <section class="border-box">
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+        <i>☕</i>
+      </section>
+
+
+    </main>
+  </body>
+</html>
