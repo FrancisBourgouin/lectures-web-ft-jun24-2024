@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Blog posts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      ></script>
+      <script src="/mock_data.js"></script>
+      <script src="/helpers.js"></script>
+      <script src="/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Small blog for fun!</h1>
+      <div>
+        <!-- <button id="view">Posts</button>
+        <button id="create">Add Post</button> -->
+        <button>Toggle new post form!</button>
+      </div>
+    </header>
+    <!-- {
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+      }, -->
+      <main>
+        <section class="no-js">
+          <h1>ENABLE JS YOU DUMDUM (What Rohan said)</h1>
+        </section>
+        <section class="loading">
+          <h1>LOADING...</h1>
+          <i></i>
+        </section>
+        <form class="hidden">
+          <input type="text" name="title" placeholder="Enter the title">
+          <input type="text" name="userId" placeholder="Enter the userId">
+          <input type="text" name="body" placeholder="Enter the body">
+
+          <button>Add new post</button>
+        </form>
+        <section class="posts">
+          
+        </section>
+        <!-- <article>
+          <h1>POST #ID : TITLE HERE</h1>
+          <h2>By author: AUTHOR HERE</h2>
+        <p>BODY HERE</p>
+      </article> -->
+    </main>
+  </body>
+  </html>
