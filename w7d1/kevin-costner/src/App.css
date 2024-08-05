@@ -1,0 +1,21 @@
+body,html{
+  background:#333;
+  color:#fff;
+}
+
+.App {
+  text-align: center;
+}
+
+.PlantList{
+  padding:1em;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:1em;
+}
+
+.PlantListItem {
+  list-style-type: none;
+  padding:1em;
+  border:0.2em solid white;
+}
