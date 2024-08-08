@@ -1,0 +1,106 @@
+:root {
+  --text: #f0ebe5;
+  --background: #100d09;
+  --primary: #c8baa2;
+  --secondary: #3e6966;
+  --accent: #c9a369;
+}
+
+body,
+html {
+  background-color: var(--background);
+  color: var(--text);
+  margin:0;
+  padding:0;
+  text-align: center;
+}
+
+.Header {
+  padding:1em;
+  background-color: var(--accent);
+  color: var(--background);
+}
+
+.ForumPost{
+  header{
+    background-color: var(--secondary);
+    padding:0.5em;
+
+    h2{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap:1em;
+
+      img{
+        width:3em;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+
+.ReplyList{
+  padding:0;
+}
+
+.ReplyListItem{
+
+  display:grid;
+  
+  gap:1em;
+  padding:1em;
+  max-width: 800px;
+  margin:0 auto;
+
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "profile reply"
+  "name reply";
+
+  &:nth-of-type(even){
+    background-color: var(--primary);
+    color:var(--background)
+  }
+
+
+
+
+  img{
+    grid-area:profile;
+    width:5em;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+    border-radius: 50%;
+  }
+
+  h1{
+    grid-area: name;
+    font-weight: 500;
+    font-size:1em;
+  }
+
+  p{
+    grid-area: reply;
+  }
+}
+
+.ReplyForm {
+  padding:1em;
+  background-color: var(--secondary);
+  color: var(--background);
+  display: flex;
+  gap:1em;
+  justify-content: center;
+
+  input{
+    width:100%;
+    max-width:80ch;
+  }
+}
