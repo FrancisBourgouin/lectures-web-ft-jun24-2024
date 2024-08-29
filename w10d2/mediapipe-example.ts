@@ -15,31 +15,30 @@
 import vision from "@mediapipe/tasks-vision@0.10.3";
 const { FaceLandmarker, FilesetResolver } = vision;
 
-
 // Before we can use HandLandmarker class we must wait for it to finish
 // loading. Machine Learning models can be large and take a moment to
 // get everything needed to run.
 async function createFaceLandmarker() {
-  try{
+  try {
     const filesetResolver = await FilesetResolver.forVisionTasks(
       "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
     );
     const faceLandmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
       baseOptions: {
         modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
-        delegate: "GPU"
+        delegate: "GPU",
       },
       outputFaceBlendshapes: true,
-      runningMode:"VIDEO",
-      numFaces: 1
+      runningMode: "VIDEO",
+      numFaces: 1,
     });
-  
-    return faceLandmarker
-  } catch(error){
-    console.log("Something went wrong when creating the faceLandmarker")
-    console.log(error)
-    
-    return null
+
+    return faceLandmarker;
+  } catch (error) {
+    console.log("Something went wrong when creating the faceLandmarker");
+    console.log(error);
+
+    return null;
   }
 }
 
@@ -47,15 +46,10 @@ async function createFaceLandmarker() {
 // Demo 2: Continuously grab image from webcam stream and detect it.
 ********************************************************************/
 
-
-
 let lastVideoTime = -1;
-let results = undefined;
-
 
 async function predictWebcam(faceLandmarker, video) {
-  
-
+  let results = undefined;
   let startTimeMs = performance.now();
 
   if (lastVideoTime !== video.currentTime) {
@@ -63,7 +57,7 @@ async function predictWebcam(faceLandmarker, video) {
     results = faceLandmarker.detectForVideo(video, startTimeMs);
   }
   if (results && results.faceLandmarks) {
-    console.log(results)
+    console.log(results);
   }
 
   // Call this function again to keep predicting when the browser is ready.
